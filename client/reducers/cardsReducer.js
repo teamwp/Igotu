@@ -15,11 +15,17 @@ const initialState = {
 const cardsReducer = (state = initialState, action) => {
   switch (action.type) {
     case types.LOGIN:
-      return;
+      return {
+        ...state
+      };
     case types.SEARCH:
-      return;
+      return {
+        ...state
+      };
     case types.GET_ALL_ITEMS:
-      return;
+      return {
+        ...state
+      };
     default:
       return state;
   }
