@@ -1,5 +1,5 @@
 import React from 'react';
 import ReactDom from 'react-dom';
-import Moo from './App.jsx';
+import App from './App.jsx';
 
-ReactDom.render(<Moo></Moo>, document.getElementById('moo'));
+ReactDom.render(<App></App>, document.getElementById('moo'));

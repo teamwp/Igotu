@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 // import MainContainer from '/containers/MainContainer';
 
-class Moo extends Component {
+class App extends Component {
   constructor(props) {
     super(props)
   }
@@ -9,10 +9,10 @@ class Moo extends Component {
   render() {
     return (
       <div>
-        This is Moo
+        <p>This is Moo</p>
       </div>
     )
   }
 }
 
-export default Moo;
+export default App;

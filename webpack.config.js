@@ -7,7 +7,6 @@ const entry = ['./client/index.js'];
 
 const output = {
   path: path.resolve(__dirname, 'build'),
-  publicPath: '/build/',
   filename: 'build.js'
 }
 
@@ -40,8 +39,5 @@ module.exports = {
     contentBase: path.resolve(__dirname, 'client'),
     watchContentBase: true
   },
-  // plugins: [new htmlWebpackPlugin({
-  //   template: path.resolve(__dirname, '/client', 'index.html'),
-  //   filename: './index.html'
-  // })]
+  plugins: [new htmlWebpackPlugin({ template: './client/index.html' })]
 }
