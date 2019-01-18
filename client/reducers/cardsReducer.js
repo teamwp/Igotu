@@ -9,7 +9,9 @@ const initialState = {
   },
   cards: [],
   modalStatus: false,
-  loggedIn: false
+  loggedIn: false,
+  fetching: false,
+  fetched: true
 };
 
 const cardsReducer = (state = initialState, action) => {

@@ -1,6 +1,7 @@
 /* eslint-disable no-useless-constructor */
 /* eslint-disable react/prefer-stateless-function */
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import NavigationContainer from './containers/NavigationContainer';
 import CardsContainer from './containers/CardsContainer';
 
