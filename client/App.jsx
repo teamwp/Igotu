@@ -1,7 +1,9 @@
 /* eslint-disable no-useless-constructor */
 /* eslint-disable react/prefer-stateless-function */
 import React, { Component } from 'react';
-import MainContainer from './containers/MainContainer';
+import { connect } from 'react-redux';
+import NavigationContainer from './containers/NavigationContainer';
+import CardsContainer from './containers/CardsContainer';
 
 class App extends Component {
   constructor(props) {
@@ -11,7 +13,8 @@ class App extends Component {
   render() {
     return (
       <div>
-        <MainContainer />
+        <NavigationContainer />
+        <CardsContainer />
       </div>
     );
   }
