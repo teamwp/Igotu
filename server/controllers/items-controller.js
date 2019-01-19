@@ -20,7 +20,30 @@ itemController.addItem = (req, res, next) => {
       next();
     };
   });
+  next();
 };
 
+itemsController.getAllItems = ( (req,res, next) => {
 
-module.exports = itemController;
+  const uri = 'postgresql://igotu:eyegotchu@igotu-master.cu4n5g8jahnw.us-west-2.rds.amazonaws.com:5432/igotu';
+  
+  const pool = new pg.Pool({
+    connectionString: uri,
+  });
+
+  const query = {
+    text: 'SELECT * FROM items'
+  }
+
+  pool.query(query.text, (err, items) => {
+    if (err) {
+      console.log('Here\'s the error: ' + err);
+    } else {
+      console.log(items.rows);
+      res.locals.items = items.rows;
+      next();
+    };
+  });
+});
+
+module.exports = itemsController;
