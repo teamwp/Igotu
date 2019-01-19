@@ -10,12 +10,17 @@ import React, { Component } from 'react';
 //   }
 // }
 
-function Card(props) {
+const Card = (props) => {
+  console.log('in cards for item', props.info.item_name)
   return (
-    <div id={props.id}>
-      <p>{props.itemName}</p>
+    <div className="card" id={props.info.id}>
+      <img src={props.info.photo}></img>
+      <p>{props.info.item_name}</p>
+      <p>{props.info.price}</p>
+      <p>{props.info.item_details}</p>
+      <p>{props.info.created_at}</p>
     </div>
-  );
-}
+  )
+};
 
 export default Card;

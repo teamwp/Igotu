@@ -2,7 +2,7 @@
 import * as types from '../constants/actionTypes';
 
 const initialState = {
-  items: [{ id: null, item_name: null, item_price: 0, item_photo: null, item_details: null }],
+  items: [],
   user: {
     name: '',
     email: ''
@@ -15,6 +15,7 @@ const initialState = {
 };
 
 const cardsReducer = (state = initialState, action) => {
+  console.log('running reducer:', action.type);
   switch (action.type) {
     case types.LOGIN:
       return {
@@ -36,6 +37,7 @@ const cardsReducer = (state = initialState, action) => {
         fetching: false,
         fetched: true
       };
+
     default:
       return state;
   }

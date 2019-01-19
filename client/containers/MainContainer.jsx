@@ -7,16 +7,17 @@ import { connect } from 'react-redux';
 import Navigation from './NavigationContainer.jsx';
 import Cards from './CardsContainer.jsx';
 import types from '../constants/actionTypes';
-import { fetchItemsData } from '../actions/actions';
+import * as actions from '../actions/actions';
 
+// use this.props.cards to access state in our components below
 const mapStateToProps = store => ({
-  items: store.items,
   cards: store.cards
 });
 
+// need to add all our action creators here
 const mapDispatchToProps = dispatch => ({
   fetchAllItems: () => {
-    dispatch(fetchItemsData());
+    dispatch(actions.fetchItemsData());
   }
 });
 
@@ -30,10 +31,10 @@ class MainContainer extends Component {
   }
 
   render() {
+    //console.log('here are ur props ',this.props.cards.items);
     return (
       <div id="cardsdiv">
-        <Cards items={this.props.items} />
-        testin
+        <Cards items={this.props.cards.items} />
       </div>
     );
   }
