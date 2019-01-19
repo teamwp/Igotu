@@ -36,6 +36,7 @@ function cardFunction(item) {
 }
 
 function checkRender(props) {
+  console.log(props.items);
   if (typeof props.items === 'undefined') return null;
   return props.items.map(cardFunction);
 }
