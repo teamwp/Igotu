@@ -25,9 +25,8 @@ app.get('/user/:email', (req, res, err) => {
   res.status(200);
 });
 
-app.get('/item/:id', (req, res, err) => {
-  // gets one item from item table by its name
-  res.status(200);
+app.get('/item/:id', itemsController.getOneItem, (req, res, err) => {
+  res.status(200).json(res.locals.oneItem);
 });
 
 app.get('/search/:item_name', itemsController.searchItem, (req, res, err) => {
