@@ -31,7 +31,7 @@ const CardsContainer = (props) => {
   const createCard = (item) => {
 
     console.log('in create card for: ' ,item.item_name)
-    return <Card key={uuid()} info={item}></Card>
+    return <Card   key={uuid()} info={item}></Card>
 
   }
 
@@ -42,6 +42,9 @@ const CardsContainer = (props) => {
 
   return (
     <div className="card-container">
+    <div className="col-fluid">
+        <button className="animated loading center loading-white hide-text" id="btn3">3</button>
+    </div>
       {cards}
     </div>
   )
