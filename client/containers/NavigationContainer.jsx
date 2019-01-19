@@ -23,6 +23,45 @@ const Navigation = props => (
           />
         </div>
       </div>
+      <div className="nav-right">
+        <div className="nav-item has-sub toggle-hover" id="dropdown">
+          <a className="nav-dropdown-link">Categories</a>
+          <ul className="dropdown-menu dropdown-animated" role="menu">
+            <li
+              role="menu-item"
+              onClick={() => {
+                props.fetchCategory('outdoor');
+              }}
+            >
+              <center>Outdoor </center>
+            </li>
+            <li
+              role="menu-item"
+              onClick={() => {
+                props.fetchCategory('household');
+              }}
+            >
+              <center>Household</center>
+            </li>
+            <li
+              role="menu-item"
+              onClick={() => {
+                props.fetchCategory('Entertainment');
+              }}
+            >
+              <center>Entertainment</center>
+            </li>
+            <li
+              role="menu-item"
+              onClick={() => {
+                props.fetchCategory('Toys');
+              }}
+            >
+              <center>Toys</center>
+            </li>
+          </ul>
+        </div>
+      </div>
     </div>
   </div>
 );

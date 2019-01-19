@@ -43,6 +43,18 @@ export const fetchSearchedItems = search => dispatch => {
     .catch(() => dispatch(fetchError));
 };
 
+export const fetchCategoryItems = category => dispatch => {
+  dispatch(fetchItemsStart());
+
+  fetch(`http://localhost:3000/category/${category}`)
+    .then(response => response.json())
+    .then(data => {
+      console.log('we got the category items');
+      dispatch(fetchedItems(data));
+    })
+    .catch(() => dispatch(fetchError));
+};
+
 // export const searchStart = query => ({
 //   type: types.SEARCH,
 //   payload: query

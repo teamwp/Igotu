@@ -27,6 +27,9 @@ const mapDispatchToProps = dispatch => ({
   },
   searchBoxChange: value => {
     dispatch(actions.searchValueChange(value));
+  },
+  fetchCategory: value => {
+    dispatch(actions.fetchCategoryItems(value));
   }
 });
 
@@ -46,6 +49,7 @@ class MainContainer extends Component {
         <div id="navdiv">
           <Navigation
             fetchSearchedItems={this.props.fetchSearchedItems}
+            fetchCategory={this.props.fetchCategory}
             searchValue={this.props.cards.searchBoxValue}
             searchBoxChange={this.props.searchBoxChange}
           />
