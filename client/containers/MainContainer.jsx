@@ -7,7 +7,7 @@ import { connect } from 'react-redux';
 import Navigation from './NavigationContainer.jsx';
 import Cards from './CardsContainer.jsx';
 import types from '../constants/actionTypes';
-import actions from '../actions/actions';
+import { fetchItemsData } from '../actions/actions';
 
 const mapStateToProps = store => ({
   items: store.items,
@@ -16,7 +16,7 @@ const mapStateToProps = store => ({
 
 const mapDispatchToProps = dispatch => ({
   fetchAllItems: () => {
-    dispatch(actions.fetchItemsData());
+    dispatch(fetchItemsData());
   }
 });
 
@@ -25,7 +25,7 @@ class MainContainer extends Component {
     super(props);
   }
 
-  componentDidMount() {
+  componentWillMount() {
     this.props.fetchAllItems();
   }
 

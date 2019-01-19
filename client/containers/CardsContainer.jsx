@@ -12,14 +12,15 @@ class CardsContainer extends Component {
         itemPrice={item.price}
         itemPhoto={item.photo}
         itemDetails={item.item_details}
-        key={uuid()}
+        key={item.id}
       />
     );
   }
 
   render() {
-    const cards = props.cards.map(this.cardFunction, this);
-
+    const cards = this.props.items.map(this.cardFunction, this);
     return <div id="cards-container">{cards}</div>;
   }
 }
+
+export default CardsContainer;

@@ -2,7 +2,7 @@
 import * as types from '../constants/actionTypes';
 
 const initialState = {
-  items: [],
+  items: [{ id: null, item_name: null, item_price: 0, item_photo: null, item_details: null }],
   user: {
     name: '',
     email: ''
