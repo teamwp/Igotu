@@ -20,7 +20,19 @@ export const fetchItemsData = () => dispatch => {
   fetch('http://localhost:3000/allItems')
     .then(response => response.json())
     .then(data => {
-      console.log('we got the items')
+      console.log('we got the items');
+      dispatch(fetchedItems(data));
+    })
+    .catch(() => dispatch(fetchError));
+};
+
+export const fetchSearchedItems = () => dispatch => {
+  dispatch(fetchItemsStart());
+
+  fetch('http://localhost:3000/search/?item_name=bbq')
+    .then(response => response.json())
+    .then(data => {
+      console.log('we got the searched items');
       dispatch(fetchedItems(data));
     })
     .catch(() => dispatch(fetchError));

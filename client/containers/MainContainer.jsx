@@ -12,12 +12,16 @@ import * as actions from '../actions/actions';
 // use this.props.cards to access state in our components below
 const mapStateToProps = store => ({
   cards: store.cards
+  // search: store.search
 });
 
 // need to add all our action creators here
 const mapDispatchToProps = dispatch => ({
   fetchAllItems: () => {
     dispatch(actions.fetchItemsData());
+  },
+  fetchSearchedItems: () => {
+    dispatch(actions.fetchSearchedItems());
   }
 });
 
@@ -26,15 +30,20 @@ class MainContainer extends Component {
     super(props);
   }
 
-  componentDidMount() {
+  componentWillMount() {
     this.props.fetchAllItems();
   }
 
   render() {
-    //console.log('here are ur props ',this.props.cards.items);
+    // console.log('here are ur props ',this.props.cards.items);
     return (
-      <div id="cardsdiv">
-        <Cards items={this.props.cards.items} />
+      <div>
+        <div id="navdiv">
+          <Navigation fetchSearchedItem={this.props.fetchSearchedItems} />
+        </div>
+        <div id="cardsdiv">
+          <Cards items={this.props.cards.items} />
+        </div>
       </div>
     );
   }
