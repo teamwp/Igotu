@@ -80,10 +80,28 @@ itemController.searchItem = (req, res, next) => {
     values: [req.params.item_name]
   };
   pool.query(query.text, query.values, (err, items) => {
-    console.log(items);
     if (err) {
     } else {
       res.locals.search = items.rows;
+      next();
+    }
+  });
+};
+
+itemController.searchCategory = (req, res, next) => {
+  const uri =
+    'postgresql://igotu:eyegotchu@igotu-master.cu4n5g8jahnw.us-west-2.rds.amazonaws.com:5432/igotu';
+  const pool = new pg.Pool({
+    connectionString: uri
+  });
+  const query = {
+    text: 'SELECT * FROM items WHERE category = $1',
+    values: [req.params.category]
+  };
+  pool.query(query.text, query.values, (err, items) => {
+    if (err) {
+    } else {
+      res.locals.category = items.rows;
       next();
     }
   });
