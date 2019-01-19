@@ -12,36 +12,34 @@ const userController = require('./controllers/users-controller');
 const itemsController = require('./controllers/items-controller');
 
 app.use(bodyParser.urlencoded({ extended: true }));
-// app.use(cookieParser());
+app.use(cookieParser());
 
 app.use((req, res, next) => {
   res.header('Access-Control-Allow-Origin', '*');
   res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-TypeError, Accept');
   next();
 });
-// home page
-app.get('/', (req, res, err) => {
-  // home page
-});
 
 app.get('/user/:email', (req, res, err) => {
   // joins user table and item table
+  res.status(200);
 });
 
 app.get('/item/:id', (req, res, err) => {
-  // gets item from item table
+  // gets one item from item table by its name
+  res.status(200);
 });
 
-app.get('/search/:item', (req, res, err) => {
-  // queries item table for item
+app.get('/search/:item_name', itemsController.searchItem, (req, res, err) => {
+  res.status(200).json(res.locals.search);
 });
 
 app.get('/category/:category', (req, res, err) => {
   // queries items by category
+  res.status(200);
 });
-// get all items from items table
+
 app.get('/allItems', itemsController.getAllItems, (req, res, err) => {
-  console.log(res.locals.items);
   res.status(200).json(res.locals.items);
 });
 
@@ -55,6 +53,11 @@ app.post('/addItem', itemsController.addItem, (req, res, err) => {
 
 app.delete('/deleteItem', (req, res, err) => {
   // deletes item from database
+  res.status(200);
 });
+
+app.use(express.static(path.resolve(__dirname, '../build')))
+
+
 
 app.listen(port, () => console.log(`Listening on port ${port}`));
