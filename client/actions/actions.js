@@ -14,6 +14,11 @@ export const fetchError = err => ({
   payload: err
 });
 
+export const searchValueChange = value => ({
+  type: types.SEARCH_BOX_CHANGE,
+  payload: value
+});
+
 export const fetchItemsData = () => dispatch => {
   dispatch(fetchItemsStart());
 
@@ -26,10 +31,10 @@ export const fetchItemsData = () => dispatch => {
     .catch(() => dispatch(fetchError));
 };
 
-export const fetchSearchedItems = () => dispatch => {
+export const fetchSearchedItems = search => dispatch => {
   dispatch(fetchItemsStart());
 
-  fetch('http://localhost:3000/search/bbq')
+  fetch(`http://localhost:3000/search/${search}`)
     .then(response => response.json())
     .then(data => {
       console.log('we got the searched items');

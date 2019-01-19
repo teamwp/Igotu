@@ -1,17 +1,21 @@
 import React from 'react';
 
 const Search = props => {
-  console.log('searchbox', props);
-
+  function handleChange(e) {
+    console.log(e.target.value);
+    props.searchBoxChange(e.target.value);
+  }
   return (
     <div id="search-bar">
       <form
         onSubmit={e => {
           e.preventDefault();
-          props.fetchSearchedItems();
+          console.log('event: ', props.searchValue);
+          props.fetchSearchedItems(props.searchValue);
         }}
+        onChange={handleChange}
       >
-        <input type="search" name="searchbox" defaultValue="search" size="35" />
+        <input type="search" name="searchbox" defaultValue={props.searchValue} size="35" />
       </form>
     </div>
   );
