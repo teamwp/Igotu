@@ -39,7 +39,7 @@ class MainContainer extends Component {
     return (
       <div>
         <div id="navdiv">
-          <Navigation fetchSearchedItem={this.props.fetchSearchedItems} />
+          <Navigation fetchSearchedItems={this.props.fetchSearchedItems} />
         </div>
         <div id="cardsdiv">
           <Cards items={this.props.cards.items} />
