@@ -89,4 +89,8 @@ itemController.searchItem = (req, res, next) => {
   });
 };
 
+itemController.deleteItem = (req, res, next) => {
+  
+}
+
 module.exports = itemController;
