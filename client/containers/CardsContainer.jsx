@@ -35,9 +35,13 @@ function cardFunction(item) {
   );
 }
 
+function checkRender(props) {
+  if (typeof props.items === 'undefined') return null;
+  return props.items.map(cardFunction);
+}
+
 function CardsContainer(props) {
-  const cards = props.items.map(cardFunction);
-  return <div id="cards-container">{cards}</div>;
+  return <div id="cards-container">{checkRender(props)}</div>;
 }
 
 export default CardsContainer;
