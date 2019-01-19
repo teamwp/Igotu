@@ -7,12 +7,12 @@ import Navigation from './NavigationContainer.jsx';
 import Cards from './CardsContainer.jsx';
 import types from '../constants/actionTypes';
 import TestiButton from '../components/TestiButton.jsx';
-// import { fetchItemsData } from '../actions/actions';
+import { fetchItemsData } from '../actions/actions';
 
 const mapStateToProps = store => ({});
 
 const mapDispatchToProps = dispatch => ({
-  // fetchAllItems: dispatch(fetchItemsData)
+  fetchAllItems: dispatch(fetchItemsData)
 });
 
 class MainContainer extends Component {
@@ -24,7 +24,7 @@ class MainContainer extends Component {
     return (
       // <Navigation />
       <div>
-        {/* <TestiButton fetchAllItems={this.props.fetchAllItems} /> */}
+        <TestiButton fetchAllItems={this.props.fetchAllItems} />
         {/* <Cards /> */}
         testin
       </div>
