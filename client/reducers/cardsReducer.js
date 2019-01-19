@@ -11,7 +11,7 @@ const initialState = {
   modalStatus: false,
   loggedIn: false,
   fetching: false,
-  fetched: true
+  fetched: false
 };
 
 const cardsReducer = (state = initialState, action) => {
@@ -32,7 +32,7 @@ const cardsReducer = (state = initialState, action) => {
     case types.GET_ALL_ITEMS:
       return {
         ...state,
-        cards: action.payload,
+        items: action.payload,
         fetching: false,
         fetched: true
       };

@@ -1,27 +1,26 @@
 const pg = require('pg');  // postgres library
 
 
-itemsController = {};
+itemController = {};
 
-// change to get/show all items
-itemsController.getUsers = ((req, res, next) => {
-  // code here
+itemController.addItem = (req, res, next) => {  
   const uri = 'postgresql://igotu:eyegotchu@igotu-master.cu4n5g8jahnw.us-west-2.rds.amazonaws.com:5432/igotu';
   const pool = new pg.Pool({
     connectionString: uri,
   });
   const query = {
-    text: 'SELECT * FROM users',
+    text: 'INSERT INTO items(photo, price, item_name, item_details, created_at) VALUES($1, $2, $3, $4, $5) RETURNING *',
+    values: [req.body.photo, req.body.price, req.body.item_name, req.body.item_details, req.body.created_at]
   }
-  pool.query(query.text, (err, res) => {
+  pool.query(query.text, query.values, (err, user) => {
     if (err) {
       console.log('Here\'s the error: ' + err);
     } else {
-      console.log(res.rows);
+      res.locals.data = user.rows[0];
+      next();
     };
   });
-  next();
-});
+};
 
 itemsController.getAllItems = ( (req,res, next) => {
 

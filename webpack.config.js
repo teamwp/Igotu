@@ -12,7 +12,7 @@ const output = {
 module.exports = {
   entry,
   output,
-  optimization: { minimize: false },
+  // optimization: { minimize: false },
   module: {
     rules: [
       {

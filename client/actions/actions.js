@@ -1,4 +1,3 @@
-import fetch from 'whatwg-fetch';
 import * as types from '../constants/actionTypes';
 
 export const fetchItemsStart = () => ({
@@ -16,12 +15,13 @@ export const fetchError = err => ({
 });
 
 export const fetchItemsData = () => dispatch => {
-  fetchItemsStart();
+  dispatch(fetchItemsStart());
 
-  fetch('/allItems')
-    .then(response => {
-      console.log(response);
-      fetchedItems(response.json());
+  fetch('http://localhost:3000/allItems')
+    .then(response => response.json())
+    .then(data => {
+      console.log(data);
+      dispatch(fetchedItems(data));
     })
     .catch(() => dispatch(fetchError));
 };
