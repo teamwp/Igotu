@@ -4,14 +4,15 @@ const htmlWebpackPlugin = require('html-webpack-plugin');
 
 const entry = ['./client/index.js'];
 
-
 const output = {
   path: path.resolve(__dirname, 'build'),
   filename: 'build.js'
-}
+};
 
 module.exports = {
-  entry, output,
+  entry,
+  output,
+  // optimization: { minimize: false },
   module: {
     rules: [
       {
@@ -27,11 +28,7 @@ module.exports = {
       {
         test: /\.(less|css)$/,
         exclude: /node_modules/,
-        use: [
-          { loader: 'style-loader' },
-          { loader: 'css-loader' },
-          { loader: 'less-loader' }
-        ]
+        use: [{ loader: 'style-loader' }, { loader: 'css-loader' }, { loader: 'less-loader' }]
       }
     ]
   },
@@ -40,4 +37,4 @@ module.exports = {
     watchContentBase: true
   },
   plugins: [new htmlWebpackPlugin({ template: './client/index.html' })]
-}
+};
