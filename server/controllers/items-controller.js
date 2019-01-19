@@ -1,48 +1,55 @@
-const pg = require('pg');  // postgres library
+const pg = require('pg'); // postgres library
 
+const itemController = {};
 
-itemController = {};
-
-itemController.addItem = (req, res, next) => {  
-  const uri = 'postgresql://igotu:eyegotchu@igotu-master.cu4n5g8jahnw.us-west-2.rds.amazonaws.com:5432/igotu';
+itemController.addItem = (req, res, next) => {
+  const uri =
+    'postgresql://igotu:eyegotchu@igotu-master.cu4n5g8jahnw.us-west-2.rds.amazonaws.com:5432/igotu';
   const pool = new pg.Pool({
-    connectionString: uri,
+    connectionString: uri
   });
   const query = {
-    text: 'INSERT INTO items(photo, price, item_name, item_details, created_at) VALUES($1, $2, $3, $4, $5) RETURNING *',
-    values: [req.body.photo, req.body.price, req.body.item_name, req.body.item_details, req.body.created_at]
-  }
+    text:
+      'INSERT INTO items(photo, price, item_name, item_details, created_at) VALUES($1, $2, $3, $4, $5) RETURNING *',
+    values: [
+      req.body.photo,
+      req.body.price,
+      req.body.item_name,
+      req.body.item_details,
+      req.body.created_at
+    ]
+  };
   pool.query(query.text, query.values, (err, user) => {
     if (err) {
-      console.log('Here\'s the error: ' + err);
+      console.log(`Here's the error: ${err}`);
     } else {
       res.locals.data = user.rows[0];
       next();
-    };
+    }
   });
 };
 
-itemsController.getAllItems = ( (req,res, next) => {
+itemController.getAllItems = (req, res, next) => {
+  const uri =
+    'postgresql://igotu:eyegotchu@igotu-master.cu4n5g8jahnw.us-west-2.rds.amazonaws.com:5432/igotu';
 
-  const uri = 'postgresql://igotu:eyegotchu@igotu-master.cu4n5g8jahnw.us-west-2.rds.amazonaws.com:5432/igotu';
-  
   const pool = new pg.Pool({
-    connectionString: uri,
+    connectionString: uri
   });
 
   const query = {
     text: 'SELECT * FROM items'
-  }
+  };
 
   pool.query(query.text, (err, items) => {
     if (err) {
-      console.log('Here\'s the error: ' + err);
+      console.log(`Here's the error: ${err}`);
     } else {
       console.log(items.rows);
       res.locals.items = items.rows;
       next();
-    };
+    }
   });
-});
+};
 
-module.exports = itemsController;
+module.exports = itemController;
