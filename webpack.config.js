@@ -38,3 +38,4 @@ module.exports = {
   },
   plugins: [new htmlWebpackPlugin({ template: './client/index.html' })]
 };
+

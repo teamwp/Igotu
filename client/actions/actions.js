@@ -20,7 +20,7 @@ export const fetchItemsData = () => dispatch => {
   fetch('http://localhost:3000/allItems')
     .then(response => response.json())
     .then(data => {
-      console.log(data);
+      console.log('we got the items')
       dispatch(fetchedItems(data));
     })
     .catch(() => dispatch(fetchError));
