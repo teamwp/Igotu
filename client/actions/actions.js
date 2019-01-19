@@ -1,21 +1,17 @@
-import fetch from 'whatwg-fetch';
+// import fetch from 'whatwg-fetch';
 import * as types from '../constants/actionTypes';
 
 export const fetchItemsStart = () => ({
-  type: types.GET_ALL_ITEMS_START,
-  fetching: true
+  type: types.GET_ALL_ITEMS_START
 });
 
 export const fetchedItems = resp => ({
   type: types.GET_ALL_ITEMS,
-  fetching: false,
-  fetched: true,
   payload: resp
 });
 
 export const fetchError = err => ({
   type: types.GET_ALL_ITEMS_ERR,
-  fetching: false,
   payload: err
 });
 

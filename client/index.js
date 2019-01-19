@@ -9,5 +9,6 @@ render(
   <Provider store={store}>
     <App />
   </Provider>,
+  // <div>hello</div>,
   document.getElementById('moo')
 );

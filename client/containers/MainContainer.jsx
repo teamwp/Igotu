@@ -3,18 +3,16 @@
 /* eslint-disable react */
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import Navigation from '../containers/NavigationContainer';
-import Cards from '../containers/CardsContainer';
+import Navigation from './NavigationContainer.jsx';
+import Cards from './CardsContainer.jsx';
 import types from '../constants/actionTypes';
+import TestiButton from '../components/TestiButton.jsx';
+// import { fetchItemsData } from '../actions/actions';
 
-const mapStateToProps = store => ({
-  
-});
+const mapStateToProps = store => ({});
 
 const mapDispatchToProps = dispatch => ({
-  getAllItems: {store.dispatch({type: types.GET_ALL_ITEMS_START}),
-   
-}
+  // fetchAllItems: dispatch(fetchItemsData)
 });
 
 class MainContainer extends Component {
@@ -24,10 +22,17 @@ class MainContainer extends Component {
 
   render() {
     return (
-      <Navigation />
-      <Cards />
+      // <Navigation />
+      <div>
+        {/* <TestiButton fetchAllItems={this.props.fetchAllItems} /> */}
+        {/* <Cards /> */}
+        testin
+      </div>
     );
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(MainContainer);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(MainContainer);

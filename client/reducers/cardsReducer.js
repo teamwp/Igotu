@@ -24,9 +24,17 @@ const cardsReducer = (state = initialState, action) => {
       return {
         ...state
       };
+    case types.GET_ALL_ITEMS_START:
+      return {
+        ...state,
+        fetching: true
+      };
     case types.GET_ALL_ITEMS:
       return {
-        ...state
+        ...state,
+        cards: action.payload,
+        fetching: false,
+        fetched: true
       };
     default:
       return state;
