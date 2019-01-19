@@ -5,6 +5,9 @@ const Search = props => {
     console.log(e.target.value);
     props.searchBoxChange(e.target.value);
   }
+  function clearTextBox() {
+    props.searchBoxChange();
+  }
   return (
     <div id="search-bar">
       <form
@@ -12,6 +15,9 @@ const Search = props => {
           e.preventDefault();
           console.log('event: ', props.searchValue);
           props.fetchSearchedItems(props.searchValue);
+        }}
+        onClick={e => {
+          clearTextBox();
         }}
         onChange={handleChange}
       >

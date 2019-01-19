@@ -14,6 +14,7 @@ const Navigation = props => (
       </div>
     </div>
     <div className="header-nav" id="header-menu">
+      <div className="nav-left" />
       <div className="nav-center">
         <div className="nav-item no-hover" id="header-search">
           <Search
@@ -27,13 +28,18 @@ const Navigation = props => (
         <div className="nav-item has-sub toggle-hover" id="dropdown">
           <a className="nav-dropdown-link">Categories</a>
           <ul className="dropdown-menu dropdown-animated" role="menu">
+            <li role="menu-item">
+              <center>
+                <a href="/">Show All</a>
+              </center>
+            </li>
             <li
               role="menu-item"
               onClick={() => {
                 props.fetchCategory('outdoor');
               }}
             >
-              <center>Outdoor </center>
+              <center>Outdoor</center>
             </li>
             <li
               role="menu-item"
@@ -46,7 +52,7 @@ const Navigation = props => (
             <li
               role="menu-item"
               onClick={() => {
-                props.fetchCategory('Entertainment');
+                props.fetchCategory('entertainment');
               }}
             >
               <center>Entertainment</center>
@@ -54,7 +60,7 @@ const Navigation = props => (
             <li
               role="menu-item"
               onClick={() => {
-                props.fetchCategory('Toys');
+                props.fetchCategory('toys');
               }}
             >
               <center>Toys</center>
