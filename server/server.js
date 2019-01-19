@@ -49,7 +49,7 @@ app.post('/addUser', userController.addUser, (req, res, err) => {
   res.status(200).json(res.locals.data);
 });
 
-app.post('/addItem', itemController.addItem, (req, res, err) => {
+app.post('/addItem', itemsController.addItem, (req, res, err) => {
   res.status(200).json(res.locals.data);
 });
 
