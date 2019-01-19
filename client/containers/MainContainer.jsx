@@ -31,10 +31,10 @@ class MainContainer extends Component {
   }
 
   render() {
-    //console.log('here are ur props ',this.props.cards.items);
+    console.log('here are ur props man ',this.props);
     return (
       <div id="cardsdiv">
-        <Cards items={this.props.cards.items} />
+        <Cards items={this.props.cards.items } fetchFlag={this.props.cards.fetching} loading={this.props}/>
       </div>
     );
   }

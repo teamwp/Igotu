@@ -37,14 +37,18 @@ const CardsContainer = (props) => {
 
 
   let cards = props.items.map(createCard);
-  
-
+ 
+  let Loading;
+ 
+  if(props.fetchFlag){
+     Loading =  (<div className="col-fluid">
+    <button className="animated loading center loading-white loading-right white" id="loadButton">Loading Data</button>
+</div>)
+  }
 
   return (
-    <div className="card-container">
-    <div className="col-fluid">
-        <button className="animated loading center loading-white hide-text" id="btn3">3</button>
-    </div>
+    <div className="card-container" className="row">
+      {Loading}
       {cards}
     </div>
   )
