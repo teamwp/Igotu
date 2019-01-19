@@ -20,7 +20,6 @@ itemController.addItem = (req, res, next) => {
       next();
     };
   });
-  next();
 };
 
 itemsController.getAllItems = ( (req,res, next) => {
