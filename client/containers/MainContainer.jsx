@@ -1,3 +1,5 @@
+/* eslint-disable react/prop-types */
+/* eslint-disable react/destructuring-assignment */
 /* eslint-disable import/no-named-as-default-member */
 /* eslint-disable no-useless-constructor */
 /* eslint-disable react/prefer-stateless-function */
@@ -20,8 +22,14 @@ const mapDispatchToProps = dispatch => ({
   fetchAllItems: () => {
     dispatch(actions.fetchItemsData());
   },
-  fetchSearchedItems: () => {
-    dispatch(actions.fetchSearchedItems());
+  fetchSearchedItems: value => {
+    dispatch(actions.fetchSearchedItems(value));
+  },
+  searchBoxChange: value => {
+    dispatch(actions.searchValueChange(value));
+  },
+  fetchCategory: value => {
+    dispatch(actions.fetchCategoryItems(value));
   }
 });
 
@@ -39,10 +47,19 @@ class MainContainer extends Component {
     return (
       <div>
         <div id="navdiv">
-          <Navigation fetchSearchedItems={this.props.fetchSearchedItems} />
+          <Navigation
+            fetchSearchedItems={this.props.fetchSearchedItems}
+            fetchCategory={this.props.fetchCategory}
+            searchValue={this.props.cards.searchBoxValue}
+            searchBoxChange={this.props.searchBoxChange}
+          />
         </div>
         <div id="cardsdiv">
-          <Cards items={this.props.cards.items } fetchFlag={this.props.cards.fetching} loading={this.props}/>
+          <Cards
+            items={this.props.cards.items}
+            fetchFlag={this.props.cards.fetching}
+            loading={this.props}
+          />
         </div>
       </div>
     );

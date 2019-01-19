@@ -71,7 +71,7 @@ itemController.getAllItems = (req, res, next) => {
 
 itemController.searchItem = (req, res, next) => {
   const uri =
-  'postgresql://igotu:eyegotchu@igotu-master.cu4n5g8jahnw.us-west-2.rds.amazonaws.com:5432/igotu';
+    'postgresql://igotu:eyegotchu@igotu-master.cu4n5g8jahnw.us-west-2.rds.amazonaws.com:5432/igotu';
   const pool = new pg.Pool({
     connectionString: uri
   });

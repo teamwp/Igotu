@@ -55,8 +55,6 @@ app.delete('/deleteItem', (req, res, err) => {
   res.status(200);
 });
 
-app.use(express.static(path.resolve(__dirname, '../build')))
-
-
+app.use(express.static(path.resolve(__dirname, '../build')));
 
 app.listen(port, () => console.log(`Listening on port ${port}`));
