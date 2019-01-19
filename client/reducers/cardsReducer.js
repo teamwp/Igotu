@@ -11,7 +11,8 @@ const initialState = {
   modalStatus: false,
   loggedIn: false,
   fetching: false,
-  fetched: false
+  fetched: false,
+  searchBoxValue: 'search'
 };
 
 const cardsReducer = (state = initialState, action) => {
@@ -37,6 +38,11 @@ const cardsReducer = (state = initialState, action) => {
         items: action.payload,
         fetching: false,
         fetched: true
+      };
+    case types.SEARCH_BOX_CHANGE:
+      return {
+        ...state,
+        searchBoxValue: action.payload
       };
 
     default:

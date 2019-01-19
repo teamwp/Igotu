@@ -33,9 +33,8 @@ app.get('/search/:item_name', itemsController.searchItem, (req, res, err) => {
   res.status(200).json(res.locals.search);
 });
 
-app.get('/category/:category', (req, res, err) => {
-  // queries items by category
-  res.status(200);
+app.get('/category/:category', itemsController.searchCategory, (req, res, err) => {
+  res.status(200).json(res.locals.category);
 });
 
 app.get('/allItems', itemsController.getAllItems, (req, res, err) => {
@@ -55,8 +54,6 @@ app.delete('/deleteItem', (req, res, err) => {
   res.status(200);
 });
 
-app.use(express.static(path.resolve(__dirname, '../build')))
-
-
+app.use(express.static(path.resolve(__dirname, '../build')));
 
 app.listen(port, () => console.log(`Listening on port ${port}`));

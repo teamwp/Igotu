@@ -55,7 +55,7 @@ const CardsContainer = (props) => {
       counter++;
     }
 
-    let currentRow = <div className="row"> {currentCards}</div>
+    let currentRow = <div className="row" key={uuid()}> {currentCards}</div>
     cardRows.push(currentRow);
 
   }
