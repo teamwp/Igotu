@@ -2,6 +2,7 @@
 /* eslint-disable react/self-closing-comp */
 import React from 'react';
 import Search from '../components/SearchBox.jsx';
+import SubNavigation from './SubNavContainer.jsx'
 // import * as actions from '../constants/actionTypes';
 
 const Navigation = props => (
