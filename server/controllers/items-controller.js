@@ -2,6 +2,26 @@ const pg = require('pg'); // postgres library
 
 const itemController = {};
 
+itemController.getOneItem = (req, res, next) => {
+  const uri =
+  'postgresql://igotu:eyegotchu@igotu-master.cu4n5g8jahnw.us-west-2.rds.amazonaws.com:5432/igotu';
+  const pool = new pg.Pool({
+    connectionString: uri
+  });
+  const query = {
+    text: 'SELECT * FROM items WHERE id = $1',
+    values: [req.params.id]
+  };
+  pool.query(query.text, query.values, (err, items) => {
+    console.log('These are the items: ', items);
+    if (err) {
+    } else {
+      res.locals.oneItem = items.rows;
+      next();
+    }
+  });
+};
+
 itemController.addItem = (req, res, next) => {
   const uri =
     'postgresql://igotu:eyegotchu@igotu-master.cu4n5g8jahnw.us-west-2.rds.amazonaws.com:5432/igotu';
