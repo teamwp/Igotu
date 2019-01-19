@@ -29,7 +29,7 @@ export const fetchItemsData = () => dispatch => {
 export const fetchSearchedItems = () => dispatch => {
   dispatch(fetchItemsStart());
 
-  fetch('http://localhost:3000/search/?item_name=bbq')
+  fetch('http://localhost:3000/search/bbq')
     .then(response => response.json())
     .then(data => {
       console.log('we got the searched items');
