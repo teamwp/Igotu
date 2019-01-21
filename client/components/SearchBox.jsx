@@ -16,12 +16,9 @@ const Search = props => {
           console.log('event: ', props.searchValue);
           props.fetchSearchedItems(props.searchValue);
         }}
-        onClick={e => {
-          clearTextBox();
-        }}
         onChange={handleChange}
       >
-        <input type="search" name="searchbox" defaultValue={props.searchValue} size="35" />
+        <input type="search" name="searchbox" size="35" />
       </form>
     </div>
   );

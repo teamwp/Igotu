@@ -23,50 +23,50 @@ const uuid = require('uuid/v1');
 //   }
 // }
 
-
-const CardsContainer = (props) => {
-  
+const CardsContainer = props => {
   console.log('here are the props inside CardsContainer ', props);
 
-  const createCard = (item) => {
+  const createCard = item => {
+    console.log('in create card for: ', item.item_name);
+    return <Card key={uuid()} info={item} />;
+  };
 
-    console.log('in create card for: ' ,item.item_name)
-    return <Card   key={uuid()} info={item}></Card>
+  const cards = props.items.map(createCard);
 
-  }
+  const cardRows = [];
 
+  let counter = 0;
 
-  let cards = props.items.map(createCard);
+  for (let i = 0; i <= cards.length / 4; i++) {
+    const currentCards = [];
 
-  let cardRows = [];
-
-  // loop through the cards
-
-
-  let counter =0;
-
-  for(let i =0; i<= cards.length/4; i++){
-
-
-    let currentCards =[];
-
-    for(let j =0; j<4; j++){
+    for (let j = 0; j < 4; j++) {
       currentCards.push(cards[counter]);
       counter++;
     }
 
-    let currentRow = <div className="row" key={uuid()}> {currentCards}</div>
+    const currentRow = (
+      <div className="row" key={uuid()}>
+        {' '}
+        {currentCards}
+      </div>
+    );
     cardRows.push(currentRow);
-
   }
- 
- 
+
   let Loading;
- 
-  if(props.fetchFlag){
-     Loading =  (<div className="col-fluid">
-    <button className="animated loading center loading-white loading-right white" id="loadButton">Loading Data</button>
-</div>)
+
+  if (props.fetchFlag) {
+    Loading = (
+      <div className="col-fluid">
+        <button
+          className="animated loading center loading-white loading-right white"
+          id="loadButton"
+        >
+          Loading Data
+        </button>
+      </div>
+    );
   }
 
   return (
@@ -74,18 +74,16 @@ const CardsContainer = (props) => {
       {Loading}
       {cardRows}
     </div>
-  )
-  
-  }
-    // <Card
-    //   itemName={item.item_name}
-    //   itemPrice={item.price}
-    //   itemPhoto={item.photo}
-    //   itemDetails={item.item_details}
-    //   key={item.id}
-    // />
-    // }
-
+  );
+};
+// <Card
+//   itemName={item.item_name}
+//   itemPrice={item.price}
+//   itemPhoto={item.photo}
+//   itemDetails={item.item_details}
+//   key={item.id}
+// />
+// }
 
 // function checkRender(props) {
 //   console.log(props.items);

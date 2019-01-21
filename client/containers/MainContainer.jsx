@@ -62,7 +62,7 @@ class MainContainer extends Component {
             loading={this.props}
           />
         </div>
-       // <ItemForm></ItemForm>
+        <ItemForm />
       </div>
     );
   }
