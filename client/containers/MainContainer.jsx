@@ -6,6 +6,8 @@
 /* eslint-disable react */
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+
 import Navigation from './NavigationContainer.jsx';
 import Cards from './CardsContainer.jsx';
 import types from '../constants/actionTypes';
