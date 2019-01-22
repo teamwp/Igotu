@@ -33,32 +33,33 @@ const CardsContainer = props => {
 
   const cards = props.items.map(createCard);
 
-  const cardRows = [];
+  // const cardRows = [];
 
-  let counter = 0;
+  // let counter = 0;
 
-  for (let i = 0; i <= cards.length / 4; i++) {
-    const currentCards = [];
+  // for (let i = 0; i <= cards.length / 4; i++) {
+  //   const currentCards = [];
 
-    for (let j = 0; j < 4; j++) {
-      currentCards.push(cards[counter]);
-      counter++;
-    }
+  //   for (let j = 0; j < 4; j++) {
+  //     currentCards.push(cards[counter]);
+  //     counter++;
+  //   }
 
-    const currentRow = (
-      <div className="row" key={uuid()}>
-        {' '}
-        {currentCards}
-      </div>
-    );
-    cardRows.push(currentRow);
-  }
+  //   const currentRow = (
+  //     <div className="row" key={uuid()}>
+  //       {' '}
+  //       {currentCards}
+  //     </div>
+  //   );
+  //   cardRows.push(currentRow);
+  // }
 
   let Loading;
 
   if (props.fetchFlag) {
     Loading = (
-      <div className="col-fluid">
+      <div className="cardgrid">
+      {/* <div className="col-3"> */}
         <button
           className="animated loading center loading-white loading-right white"
           id="loadButton"
@@ -70,9 +71,11 @@ const CardsContainer = props => {
   }
 
   return (
-    <div className="card-container">
+    // <div className="cardgrid card-container col-4">
+    <div className="cardgrid">
       {Loading}
-      {cardRows}
+      {/* {cardRows} */}
+      {cards}
     </div>
   );
 };

@@ -35,7 +35,8 @@ const Card = (props) => {
   const  styles = {backgroundImage: 'url(' + props.info.photo + ')',}
   return (
 
-    <div className="card col-3">
+    // <div className="card col-3">
+       <div className="card">
         <div className="card-container">
             <div className="card-image" style={styles}></div>
             <div className="title-container">
