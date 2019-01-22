@@ -1,11 +1,11 @@
 const pg = require('pg'); // postgres library
 
 const itemController = {};
-const dbConnectString =
+const uri =
   'postgres://igotu:stardustgotchu@stardust-igotu-dev.cu4n5g8jahnw.us-west-2.rds.amazonaws.com:5432/igotu';
 
 const pool = new pg.Pool({
-  connectionString: dbConnectString
+  connectionString: uri
 });
 
 itemController.getOneItem = (req, res, next) => {
