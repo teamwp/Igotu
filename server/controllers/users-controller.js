@@ -4,7 +4,8 @@ const pg = require('pg');  // postgres library
 userController = {};
     
 userController.addUser = (req, res, next) => {  
-  const uri = 'postgresql://igotu:eyegotchu@igotu-master.cu4n5g8jahnw.us-west-2.rds.amazonaws.com:5432/igotu';
+  //const uri = 'postgresql://igotu:eyegotchu@igotu-master.cu4n5g8jahnw.us-west-2.rds.amazonaws.com:5432/igotu';
+  const uri = 'postgres://igotu:stardustgotchu@stardust-igotu-dev.cu4n5g8jahnw.us-west-2.rds.amazonaws.com:5432/igotu';
   const pool = new pg.Pool({
     connectionString: uri,
   });

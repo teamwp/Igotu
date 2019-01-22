@@ -1,12 +1,13 @@
 const pg = require('pg'); // postgres library
 
 const itemController = {};
+const uri2 = 'postgres://igotu:stardustgotchu@stardust-igotu-dev.cu4n5g8jahnw.us-west-2.rds.amazonaws.com:5432/igotu';
 
 itemController.getOneItem = (req, res, next) => {
   const uri =
   'postgresql://igotu:eyegotchu@igotu-master.cu4n5g8jahnw.us-west-2.rds.amazonaws.com:5432/igotu';
   const pool = new pg.Pool({
-    connectionString: uri
+    connectionString: uri2
   });
   const query = {
     text: 'SELECT * FROM items WHERE id = $1',
@@ -26,7 +27,7 @@ itemController.addItem = (req, res, next) => {
   const uri =
     'postgresql://igotu:eyegotchu@igotu-master.cu4n5g8jahnw.us-west-2.rds.amazonaws.com:5432/igotu';
   const pool = new pg.Pool({
-    connectionString: uri
+    connectionString: uri2
   });
   const query = {
     text:
@@ -53,7 +54,7 @@ itemController.getAllItems = (req, res, next) => {
   const uri =
     'postgresql://igotu:eyegotchu@igotu-master.cu4n5g8jahnw.us-west-2.rds.amazonaws.com:5432/igotu';
   const pool = new pg.Pool({
-    connectionString: uri
+    connectionString: uri2
   });
   const query = {
     text: 'SELECT * FROM items'
@@ -73,7 +74,7 @@ itemController.searchItem = (req, res, next) => {
   const uri =
     'postgresql://igotu:eyegotchu@igotu-master.cu4n5g8jahnw.us-west-2.rds.amazonaws.com:5432/igotu';
   const pool = new pg.Pool({
-    connectionString: uri
+    connectionString: uri2
   });
   const query = {
     text: 'SELECT * FROM items WHERE item_name = $1',
@@ -92,7 +93,7 @@ itemController.searchCategory = (req, res, next) => {
   const uri =
     'postgresql://igotu:eyegotchu@igotu-master.cu4n5g8jahnw.us-west-2.rds.amazonaws.com:5432/igotu';
   const pool = new pg.Pool({
-    connectionString: uri
+    connectionString: uri2
   });
   const query = {
     text: 'SELECT * FROM items WHERE category = $1',

@@ -12,6 +12,8 @@ import Navigation from './NavigationContainer.jsx';
 import Cards from './CardsContainer.jsx';
 import types from '../constants/actionTypes';
 import * as actions from '../actions/actions';
+import ItemForm from '../components/ItemForm.jsx';
+import AddItemForm from '../components/AddItemForm.jsx';
 
 // use this.props.cards to access state in our components below
 const mapStateToProps = store => ({
@@ -63,6 +65,8 @@ class MainContainer extends Component {
             loading={this.props}
           />
         </div>
+        {/* <ItemForm /> */}
+        <AddItemForm></AddItemForm>
       </div>
     );
   }
