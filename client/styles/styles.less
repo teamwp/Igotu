@@ -1,8 +1,11 @@
 .card {
-  max-width: 20vw;
+  // max-width: 20vw;
+  width: 400px;
   height: 450px;
-  margin-left: 5px;
-  margin-right: 5px;
+  margin-top: 10px;
+  //margin-left: 10px;
+  //margin-right: 5px;
+
 }
 
 .card img {
@@ -39,3 +42,9 @@
 // #header-search {
 //   padding-left: 40%;
 // }
+.cardgrid {
+  display: grid;
+  grid-template-columns: repeat( auto-fit, minmax(400px, 1fr) );
+  grid-column-gap: 10px;
+  grid-row-gap: 10px;
+}
