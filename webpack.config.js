@@ -28,7 +28,11 @@ module.exports = {
       {
         test: /\.(less|css)$/,
         exclude: /node_modules/,
-        use: [{ loader: 'style-loader' }, { loader: 'css-loader' }, { loader: 'less-loader' }]
+        use: [
+          { loader: 'style-loader' },
+          { loader: 'css-loader' },
+          { loader: 'less-loader' }
+        ]
       }
     ]
   },
@@ -36,6 +40,8 @@ module.exports = {
     contentBase: path.resolve(__dirname, 'client'),
     watchContentBase: true
   },
+  resolve: {
+    extensions: ['*', '.js', '.jsx']
+  },
   plugins: [new htmlWebpackPlugin({ template: './client/index.html' })]
 };
-

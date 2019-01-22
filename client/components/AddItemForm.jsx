@@ -1,35 +1,36 @@
-import React from 'react';
+import React, { Component } from 'react';
 
-class AddItemForm extends React.Component {
-    constructor(props) {
-      super(props);
-      this.state = {value: ''};
-  
-      this.handleChange = this.handleChange.bind(this);
-      this.handleSubmit = this.handleSubmit.bind(this);
-    }
-  
-    handleChange(event) {
-      this.setState({value: event.target.value});
-    }
-  
-    handleSubmit(event) {
-      alert('This is the value passed: ' + this.state.value);
-      event.preventDefault();
-    }
-  
-    render() {
-      return (
-        <form onSubmit={this.handleSubmit}>
-          <label>
-            Add Item by UPC or Name:
-            <input type="text" value={this.state.value} onChange={this.handleChange} />
-          </label>
-          <input type="submit" value="Submit" />
-        </form>
-      );
-    }
-  }
+const ItemAddBySearch = (props) =>{
+  <form>
+    <label for='search'>Add by UPC or Item Name</label>
+    <input type='text' id='search'></input>
+  </form>
+}
 
+const ItemForm = (props) => {
+  
+  return (
+    <div id="modal-form">
+      <h3>Add an item</h3>
+      <form >
+       <label for='search'>Add by UPC or Item Name</label>
+       <input type='text' id='search'></input>
+       <input type='submit' value='Search For Item' />
+      </form>
+      <form>
+        Item Name<br></br>
+        <input type="text"></input>
+        Description<br></br>
+        <textarea></textarea>
+        Price<br></br>
+        <input type="number"></input>
+        Image Url<br></br>
+        <input type="url"></input>
+        <button></button>
+      </form>
+    </div>
+  )
 
-export default AddItemForm;
+}
+
+export default ItemForm;   
