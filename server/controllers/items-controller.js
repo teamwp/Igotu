@@ -61,7 +61,7 @@ itemController.getAllItems = (req, res, next) => {
 
 itemController.searchItem = (req, res, next) => {
   const query = {
-    text: 'SELECT * FROM items WHERE item_name = $1',
+    text: 'SELECT * FROM items WHERE item_name >= $1',
     values: [req.params.item_name]
   };
   pool.query(query.text, query.values, (err, items) => {
@@ -85,6 +85,20 @@ itemController.searchCategory = (req, res, next) => {
       res.locals.category = items.rows;
       pool.end();
       next();
+    }
+  });
+};
+
+itemController.deleteItem = (req, res, next) => {
+  const query = {
+    query: 'DELTE FROM items WHERE id=$1',
+    values: req.query.id
+  };
+
+  pool.query(query.text, query.values, err => {
+    if (err) res.send(err).end();
+    else {
+      res.sendStatus(200).end();
     }
   });
 };
